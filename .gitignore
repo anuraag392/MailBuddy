@@ -1,0 +1,35 @@
+# Environment Variables (Sensitive Data)
+.env
+.env.local
+.env.*.local
+.env.example
+*.env
+*.pem
+*.key
+D:\mailbuddy\backend\.env
+D:\mailbuddy\frontend\.env.local
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+venv/
+.venv/
+env/
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEs and System
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,31 @@
+name: Email Automation
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Run every hour
+  workflow_dispatch:
+
+jobs:
+  process-emails:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install Dependencies
+      run: |
+        pip install -r backend/requirements.txt
+        
+    - name: Run Automation Script
+      env:
+        GOOGLE_API_KEY: "${{ secrets.GOOGLE_API_KEY }}"
+        GMAIL_TOKEN: "${{ secrets.GMAIL_TOKEN }}"
+        DATABASE_URL: "${{ secrets.DATABASE_URL }}"
+      run: |
+        cd backend
+        python process_emails.py
